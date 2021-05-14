@@ -1,0 +1,61 @@
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            a{
+                padding: 10px 15px;
+                font-weight: bolder;
+                color: #5797ff;
+                background-color: white;
+                border: 0px;
+                text-decoration: none;
+            }
+        </style>
+        <script>
+            
+
+        </script>
+        
+    </head>
+    <body ng-app="myApp">
+        <a href="#/!weather">Weather</a>
+        <a href="#!currency">Movie</a>
+        <a href="#!movie">Curreny</a>
+        <div ng-view>
+            <script>
+                var app = angular.module("myApp", ["ngRoute"]);
+                app.config(function($routeProvider) {
+                $routeProvider
+                .when("/", {
+                template : "<h2>Yahoo! Weather </h2> <input type='text' placeholder='Enter City name' id='city'><br>"
+                +"<input type=text  placeholder=Enter State.><br>"
+                +"<button type=button  ng-click=Weather()>Submit</button><br><br>"
+                +"<i>City, State, Country :</i> {{ this.op_city }} {{ this.op_region }} {{ this.op_country }} <br>"
+                +"<i>Current Condition :</i> {{ this.op_text }}<br><i>Current Temperature :</i> {{ this.op_temp }}"
+                })
+                .when("/currency", {
+                template : "<input type=text placeholder=Enter Currency Symbol.><br>"
+                +"<button type=button  ng-click=Weather()>Submit</button>"
+                +"<br><h3>Rate Details</h3>"
+                +"<p class=well lead>Exchange rate relative to Euro in a JSON format: : {{ this.my_result }} </p>"
+                +"<p class=text‑info>Total #of all the service requests including Weather, Movie, and Currency is :"
+                +"<span class=badge>{{this._sharedService.totReqsMade}}</span></p>"
+                })
+                .when("/movie", {
+                template : "<input type=text required  placeholder=Enter Movie name ...><br>"
+                +"<button type=button  ng-click=Weather()>Submit</button>"
+                +"<br><h3>Movie Details</h3><p class=details><i> Title : Conjuring</i> {{ this.mv_Title }} <br>"+
+                +"<i> Plot : Horor</i> {{ this.mv_Plot }} <br>"
+                +   "<i> Actors : Patrick wilson</i> {{ this.mv_Actors }} <br>"
+                +  " <i> Directed by :Michael Chaves </i> {{ this.mv_Director }} <br>"
+                +   "<i> Rated : 9/10</i> {{ this.mv_Rated }} <br>"
+                +   "<i> Release Date : 11 September 2020</i> {{ this.mv_Released }} <br></p>"
+                });
+                });
+                </script>
+        </div>
+    </body>
+</html>

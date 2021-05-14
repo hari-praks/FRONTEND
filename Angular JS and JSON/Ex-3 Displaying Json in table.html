@@ -1,0 +1,47 @@
+ <html>
+<head>
+<script src="first.json"></script>
+<script type=text/javascript>
+function getD(){
+var e = document.getElementById("p");
+var text = e.options[e.selectedIndex].text;
+var h = document.getElementById("here");
+if(text=="--select product--")
+{
+ h.innerHTML="NO PRODUCT SELECTED <BR> please select a product";
+}
+else{
+for( var i=0;i<4;i++){
+ if( text == p_details[i]["ProductName"])
+    {
+     h.innerHTML="<b>Product Id: </b>"+p_details[i]["ProductId"]+"<br>"
+     h.innerHTML+="<b>Product Name: </b>"+p_details[i]["ProductName"]+"<br>"
+     h.innerHTML+="<b>Price: </b>"+p_details[i]["price"]+"<br>"
+     h.innerHTML+="<b>Stock: </b>"+p_details[i]["stock"]+"<br>"
+     h.innerHTML+="<b>Type: </b>"+p_details[i]["type"]+"<br>"
+    }
+ else{
+    continue;
+    }
+}
+}
+}
+</script>
+</head>
+<body>
+	<br>
+<h2>Product Details</h2>
+<br>
+<select id="p" size=1>
+<option>--select product--</option>
+<option value="Medix soap">Ashirvad Atta</option>
+<option value="Maggi noodles">Maggi noodless</option>
+<option value="AMUL icecream">Kitkat</option>
+<option value="Lays chips">Dairy Milk</option>
+</select>
+<button onClick="getD()">Availability</button><br><br>
+<p id="here"></p>
+</body>
+</html>
+ 
+

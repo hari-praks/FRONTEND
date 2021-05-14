@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>todolist in js</title>
+</head>
+<body>
+<script type="text/javascript">
+	var node=document.createElement("LI");
+	var x= prompt("Enter a word to be added");
+	node.appendChild(x);
+	document.getElementById("id1").appendChild(x);
+</script>
+<ul id="id1">
+</ul>
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Simple game
+	</title>
+</head>
+<body>
+	<h2>SIMPLE GUESSING GAME</h2>
+<script type="text/javascript">
+	var x=prompt("Enter a number");
+	if(x==7)
+	{
+		alert("You guessed it right!!")
+	}
+	else if((x<7 && x>=5) || (x>7 && x<=9))
+	{
+		alert("Your value is near");
+	}
+	else if(x<5)
+	{
+		alert("Your value is too low");
+	}
+	else if(x>9)
+	{
+		alert("Your value is too high");
+	}
+</script>
+</body>
+</html>

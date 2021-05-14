@@ -1,0 +1,5 @@
+
+  var p_details = [ {ProductId: "ESS06", ProductName: "Ashirvad Atta", price: "RS. 250", stock: "20", type : "essentials"},
+    { ProductId: "M0004", ProductName: "Maggi noodles", price: "RS. 50", stock: "30", type : "Noodles"},
+    { ProductId: "CHOC02", ProductName: "Kitkat", price: "RS. 50", stock: "10", type : "Chocs"},
+    { ProductId: "CHOC01", ProducName: "Dairy Milk", price: "RS. 20", stock: "100", type : "Chocs"}]

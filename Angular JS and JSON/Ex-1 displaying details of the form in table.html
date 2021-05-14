@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            table, td{
+                border: 1px solid black;
+                margin: 5%;
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            }
+            td:hover {
+                background-color: #ebfff7;
+            }
+            td {
+                padding: 12px;
+                text-align: left;
+                color: black;
+            }
+            label{
+        	width: 140px;
+        	display: inline-block;
+        }
+        button{
+        	margin-left: 10%;
+        }
+
+        </style>
+        <script>
+        $(document).ready(function(){
+                var table = $("<table/>").attr("id","tabl");
+                $("#div1").append(table);
+                               
+                $('#submit').click(function(){
+                    var student = {
+                        name:$('#name').val(),
+                        dob:$('#date').val(),
+                        parent:{
+                            fname:$('#fname').val(),
+                            mname:$('#mname').val()
+                        },
+                        blood: $('#bloodg').val(),
+                        email: $("#emailid").val() ,
+                        phone: {
+                            landline:$('#land').val(),
+                            mobile:$('#mobile').val()
+                        }, 
+                        address:{
+                            door:$('#door').val(),
+                            street:$('#street').val(),
+                            place:$('#place').val(),
+                            pin:$('#pin').val(),
+                            country:$('#country').val(),
+                        } ,
+                        degree:{
+                            ug:$('#ug').val(),
+                            pg:$('#pg').val(),
+                            others:$('#others').val(),
+                        }                   
+                    }
+                    console.log(student.degree.pg)
+                    var tr ="<tr>";
+                    var td1 = "<td> student name : "+student.name +"</td>";
+                    var td2 = "<td> student dob : "+ student.dob+"</td>";
+                    var td3 = "<td> Father name : "+ student.parent.fname+"<br> Mother name: " +student.parent.mname+"</td>";
+                    var td4 = "<td> Blood group : "+ student.blood+"</td>";
+                    var td5 = "<td> Email: "+ student.email+"</td>";
+                    var td6 = "<td> Landline: "+ student.phone.landline +
+                            "<br>Mobile: "+student.phone.mobile +"</td>";
+                    var td7 = "<td> Door: "+ student.address.door+
+                            "<br>Street: "+ student.address.street+
+                            "<br>Place: "+ student.address.place+
+                            "<br>Pin: "+ student.address.pin+
+                            "<br>Country: "+ student.address.country+"</td>";
+                    var td8 = "<td>UG :"+student.degree.ug+
+                        "<br>PG: "+ student.degree.pg+
+                        "<br>Others:"+ student.degree.others+"</td>"
+                    $("#tabl").append(tr+td1+td2+td3+td4+td5+td6+td7+td8);                   
+                })
+
+                
+            })
+        </script>
+    </head>
+    <body>
+        <label for="name">Name:</label>
+        <input type="text" id="name"> <br><br>
+      <label for="date">DOB:</label>    <input type="date" id="date" name="date"> <br><br>
+       <label for="fname"> Father Name: </label><input type="text" name="fname" id="fname">  <br><br>
+       <label for="mname"> Mother Name: </label><input type="text" name="mname" id="mname"> <br><br>
+       <label for="mname"> Blood Type: </label><input type="text" id="bloodg"> <br><br>
+       <label for="emailid">Email: </label> <input type="text" name="emailid" id="emailid"><br><br>
+        <label for="land"> Landline Number: </label><input type="text" name="land" id="land"><br><br>
+        <label for="mobile">Mobile Number: </label> <input type="text" name="mobile" id="mobile"><br><br>
+       <label for="door" > Door: </label><input type="text" name="door" id="door"><br><br>
+       <label for="street"> Street: </label><input type="text" name="street" id="street"><br><br>
+       <label for="place">  Place: </label><input type="text" name="place" id="place"><br><br>
+       <label for="pin"> Pin: </label><input type="text" name="pin" id="pin"><br><br>
+       <label for="country"> Country: </label><input type="text" id="country" name="con"><br><br>
+       <label for="ug"> UG: </label><input type="text" id="ug" name="ug"><br><br>
+       <label for="pg"> PG: </label><input type="text" id="pg" name="pg"><br><br>
+       <label for="others"> Others:</label><input type="text" name="others" id="others"><br><br>
+        <button type="submit" id="submit">Record</button>
+
+        <div id="div1"></div>
+    </body>
+</html>

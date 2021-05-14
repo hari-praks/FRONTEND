@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<style type="text/css">
+	input.ng-invalid{
+		border-bottom: 3px solid red;
+		width: 30%;
+	}
+
+</style>
+
+<body>
+    <h2>MY FORM </h2>
+    <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" ng-submit="onSubmit()">
+        <p>Your name(required)<br>
+            <input type="text" size="50" name="user" ng-model="user" required>
+            <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required"> Name is required.</span>
+            </span>
+        </p>
+        <p>Your Email (required)<br>
+<input type="email" size="50" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid"></span>
+<span ng-show="myForm.email.$error.required"> Email is required.</span>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$error.pattern">Invalid email id!</span>
+        </p>
+        <p>Your Phone<br>
+            <input type="tel" size="50" ng-model="mobile_number" name="mobile_number" ng-pattern="/^[7-9][0-9]{9}$/" required>
+        
+            <span style="color:red" ng-show="myForm.mobile_number.$dirty && myForm.mobile_number.$error.pattern">Invalid phone number!</span>
+        </p>
+        <p>Website<br>
+
+            <input type="url" size="50" name="Website" ng-model="Website" ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" required>
+        
+            <span style="color:red" ng-show="myForm.Website.$dirty && myForm.Website.$error.pattern">
+                Invalid url
+            </span>
+        </p>
+
+        <p>Credit Card<br>
+            <input type="tel" size="50" name="CC" ng-model="CC" ng-pattern="/^[0-9]{18}$/" required>
+
+            <span style="color:red" ng-show="myForm.CC.$dirty && myForm.CC.$invalid">
+                <span ng-show="myForm.CC.$error.pattern">Invalid Credit card</span>
+
+            </span>
+        </p>
+        <p>Date Of Birth<br>
+            <input type="text" name="DOB" size="50" ng-model="DOB" placeholder="dd/mmm/yyyy" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/" required>
+
+            <span style="color:red" ng-show="myForm.DOB.$dirty && myForm.DOB.$error.pattern">
+Invalid date format!
+            </span>
+        </p>
+        <p>
+            <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty &&
+myForm.email.$invalid">
+        </p>
+    </form>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('validateCtrl', function($scope) {
+            $scope.user = 'Hari Prakash R';
+            $scope.email = 'ariprakash2002@gmail.com';
+            $scope.DOB = '01-01-2002';
+            $scope.mobile_number = 9944556688;
+            $scope.CC = '4222 6675 57676 9999';
+            $scope.Website = "http://www.example.com/index.html";
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title>19BIT0283</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style type="text/css">
+	input.ng-invalid{
+		border-bottom: 3px solid red;
+		width: 30%;
+	}
+
+</style>
+</head>
+<body ng-app="">
+
+<form name="validate">
+	<br><br>
+	
+ Your name(required)<br>
+<input type="text" ng-model="mytext" name="fname" ng-required="true" title="This field is required"></input>
+<span style="color: red;"  ng-show="validate.fname.$touched && validate.fname.$invalid">This field is required</span>
+<br><br>
+<label for="email" >Email:(required)<br></label>
+<input type="email" name="email" ng-model="email" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}+$" placeholder="ariprakash@gmail.com" >
+<span style="color: red;" ng-show="validate.email.$touched && validate.email.$invalid">Please enter a valid email address</span>
+<br><br>
+<label for="phoneno">Your Phone<br></label>
+<input type="text" name="phoneno" id="phoneno" ng-model="phonenum" pattern="[0-9]{10}" placeholder="my phone" ></input>
+<span style="color: red;" ng-show="validate.phoneno.$touched && validate.phoneno.$invalid">Please enter a valid number<br></span>
+<br><br>
+<label for="url">Website<br></label>
+<input type="url" name="url" ng-model="url" placeholder="http://this is my website" >
+<span style="color: red;" ng-show="validate.url.$touched && validate.url.$invalid">Please enter a valid Url</span>
+<br><br>
+<label for="cardno">Credit Card<br></label>
+<input type="text" name="cardno" ng-model="cardno" placeholder="123 456 789 8760" pattern="^[0-9]{3}+[0-9]{3}+[0-9]{3}+[0-9]{4}$">
+<span style="color: red;" ng-show="validate.cardno.$touched && validate.cardno.$invalid">Please enter a valid credit card number</span>
+<br><br>
+<label for="dob">Date of birth<br></label>
+<input type="text" name="dob" placeholder="1987-ABC" pattern="^[0-9]{4}+[A-Za-z]{3}$">
+<span style="color: red;" ng-show="validate.cardno.$touched && validate.cardno.$invalid">Please enter a valid date</span>
+<br><br>
+<input type="submit" name="">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

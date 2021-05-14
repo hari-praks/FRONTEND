@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body ng-app="app1" ng-controller="addbook">
+
+<h2>Books</h2>
+
+<form ng-submit="Addbelow()">
+    <input type="text" ng-model="Input" size="50" placeholder="Add Book here">
+    <input type="submit" value="Add Book">
+</form>
+
+<br>
+
+<div ng-repeat="x in List">
+    <ul>
+    	<li  ng-model="x.done"><span ng-bind="x.Text"></span><span id="id1">&nbsp&nbspX</span> </li>
+    </ul>
+</div>
+
+
+
+<script>
+var app = angular.module('app1', []); 
+app.controller('addbook', function($scope) {
+    $scope.List = [{Text:'Alex in Wonderland', done:false}];
+
+    $scope.Addbelow = function() {
+        $scope.List.push({Text:$scope.Input, done:false});
+        $scope.Input = "";
+    };
+});
+</script>
+<script>
+	$(document).ready(function(){
+		$("#id1").click(function(event){
+			$(this).parent().remove();
+			event.stopPropagation();
+		});
+	});j
+</script>
+</body>
+</html>
